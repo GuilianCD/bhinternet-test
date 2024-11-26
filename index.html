@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Index</title>
+		<link rel="stylesheet" href="/static/styles.css" >
+	</head>
+	<body class="flex flex-col items-center">
+		<nav class="bg-black w-full h-min pt-4 pb-10">
+			<div class="container mx-auto flex justify-center items-center gap-8 px-16 md:px-0 max-w-screen-lg">
+				<img src="/static/bh_logo.png" class="w-auto h-16 aspect-[299/99] mr-8 mt-6" width="299" height="99">
+
+				<ul class="flex gap-2 text-white font-semibold h-fit gap-x-4">
+					<!--
+						Note: pour impl. ça côté serveur, il faudrait check si l'url actuelle == url du lien, auquel cas
+						mettre le svg sur celle là.
+						Pas besoin de traitement particulier sur les <li> ni sur les <a>, juste un "if then"
+					-->
+					<li class="flex flex-col mt-6 relative">
+						<div class="absolute bottom-[100%] left-0 w-full h-full flex flex-row-reverse justify-center text-2xl h-6">
+							<!-- https://remixicon.com/icon/heart-fill -->
+							<svg class="text-white -ml-4" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.52853C14.35 2.42 17.98 2.49 20.2426 4.75736C22.5053 7.02472 22.583 10.637 20.4786 12.993L11.9999 21.485L3.52138 12.993C1.41705 10.637 1.49571 7.01901 3.75736 4.75736C6.02157 2.49315 9.64519 2.41687 12.001 4.52853Z"></path></svg>
+							<svg class="text-maroon" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.52853C14.35 2.42 17.98 2.49 20.2426 4.75736C22.5053 7.02472 22.583 10.637 20.4786 12.993L11.9999 21.485L3.52138 12.993C1.41705 10.637 1.49571 7.01901 3.75736 4.75736C6.02157 2.49315 9.64519 2.41687 12.001 4.52853Z"></path></svg>
+						</div>
+						<a href="/accueil">Accueil</a>
+					</li>
+					<li class="flex flex-col mt-6 relative">
+						<a href="/particuliers">Particuliers</a>
+					</li>
+					<li class="flex flex-col mt-6 relative">
+						<a href="/professionels">Professionels</a>
+					</li>
+					<li class="flex flex-col mt-6 relative">
+						<a href="/avis">Avis clients</a>
+					</li>
+					<li class="flex flex-col mt-6 relative">
+						<a href="/portfolio">Nos réalisations</a>
+					</li>
+					<li class="flex flex-col mt-6 relative">
+						<a href="/contact">Contact</a>
+					</li>
+				</ul>
+
+				<a href="/devis-en-ligne" class="block p-2 bg-maroon text-white mt-6 ml-auto">
+					Devis en ligne
+				</a>
+			</div>
+		</nav>
+
+		<header class="w-full h-fit bg-[url(/static/bg.jpg)] bg-cover flex justify-center">
+			<div class="flex flex-col md:flex-row justify-center items-center gap-8 px-16 md:px-0 py-16 max-w-screen-lg">
+				<div class="flex w-fit h-fit">
+					<h1 class="py-4 px-8 bg-black/80 text-white text-4xl tracking-[0.2em] w-fit text-center">bh internet, à votre disposition pour l'organisation de votre soirée</h1>
+				</div>
+
+				<form method="POST" action="/estimation-budget" class="bg-black/80 text-white px-8 py-4">
+					<p class="font-semibold text-4xl text-center">Estimez gratuitement votre budget pour votre évènement</p>
+
+					<div class="grid grid-cols-2 gap-x-8 gap-y-4">
+						<div class="flex flex-col gap-1">
+							<label for="header-estim-entreprise">Entreprise</label>
+							<input required class="text-black rounded px-2 py-1 text-black" type="text" name="entreprise" id="header-estim-entreprise" placeholder="Nom">
+						</div>
+
+						<div class="flex flex-col gap-1">
+							<label for="header-estim-nom">Nom</label>
+							<input required class="text-black rounded px-2 py-1 text-black" type="text" name="nom" id="header-estim-nom" placeholder="Nom">
+						</div>
+
+						<div class="flex flex-col gap-1">
+							<label for="header-estim-email">E-mail</label>
+							<input required class="text-black rounded px-4 py-2" type="email" name="email" id="header-estim-email" placeholder="test@exemple.fr">
+						</div>
+
+						<div class="flex flex-col gap-1">
+							<label for="header-estim-tel">Téléphone</label>
+							<input required class="text-black rounded px-4 py-2" type="tel" name="tel" id="header-estim-tel" placeholder="Tél">
+						</div>
+
+						<div class="flex flex-col gap-1 col-span-2">
+							<label for="header-estim-product-type">Type de produit</label>
+							<select class="text-black  rounded px-4 py-2" required name="product-type" id="header-estim-product-type">
+								<option selected disabled>---</option>
+								<option value="type1">Type 1</option>
+								<option value="type2">Type 2</option>
+								<option value="type3">Type 3</option>
+								<option value="type4">Type 4</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="flex col-span-2 justify-center items-center py-8">
+						<button type="submit" class="block p-2 bg-maroon text-white text-xl">
+							Envoyer
+						</button>
+					</div>
+				</form>
+			</div>
+		</header>
+
+
+		<main class="w-full max-w-screen-lg px-16 md:px-0 pt-24 pb-16 flex flex-col gap-y-4">
+			<header class="flex justify-evenly items-center">
+				<div class="border-b-2 border-b-black border-b-solid w-full max-w-[4em]"></div>
+				<p class="text-2xl uppercase tracking-[0.5em]">Bienvenue</p>
+				<div class="border-b-2 border-b-black border-b-solid w-full max-w-[4em]"></div>
+			</header>
+
+			<p class="text-center text-gray-500">Selon une enquête, 60% des personnes interrogées sont déçues de leur mariage... Mauvaise organisation, stress... BH Internet est présente pour vous accompagner pour le plus beau jour de votre vie. Notre équipe s'occupe de tout afin que vous puissiez profiter pleinement de votre journée et de vos convives sans se soucier d'autre chose.</p>
+			<p class="text-center text-gray-500">Pour vos évènements professionels ou particuleirs nous mettons à votre disposition une équipe expérimentée qui saura anticiper et maîtriser chacune des situations.</p>
+
+			<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-8 gap-8">
+				<li>
+					<div class="relative isolate p-4  aspect-[4/3] w-full h-auto group cursor-pointer">
+						<img src="/static/flowers1.jpg" class="absolute aspect-square object-cover top-0 left-0 w-full h-full -z-20">
+
+						<div class="flex border-[1px] border-white border-solid p-4 group-hover:bg-pink-500/25 transition-all h-full">
+							<p class="mt-auto text-2xl text-white tracking-widest font-semibold uppercase">clé en main</p>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="relative isolate p-4  aspect-[4/3] w-full h-auto group cursor-pointer">
+						<img src="/static/flowers1.jpg" class="absolute aspect-square object-cover top-0 left-0 w-full h-full -z-20">
+
+						<div class="flex border-[1px] border-white border-solid p-4 group-hover:bg-pink-500/25 transition-all h-full">
+							<p class="mt-auto text-2xl text-white tracking-widest font-semibold uppercase">A la carte</p>
+						</div>
+					</div>
+				</li>
+				
+				<li>
+					<div class="relative isolate p-4  aspect-[4/3] w-full h-auto group cursor-pointer">
+						<img src="/static/flowers1.jpg" class="absolute aspect-square object-cover top-0 left-0 w-full h-full -z-20">
+
+						<div class="flex border-[1px] border-white border-solid p-4 group-hover:bg-pink-500/25 transition-all h-full">
+							<p class="mt-auto text-2xl text-white tracking-widest font-semibold uppercase">Decoration mariage</p>
+						</div>
+					</div>
+				</li>
+				
+				<li>
+					<div class="relative isolate p-4  aspect-[4/3] w-full h-auto group cursor-pointer">
+						<img src="/static/flowers1.jpg" class="absolute aspect-square object-cover top-0 left-0 w-full h-full -z-20">
+
+						<div class="flex border-[1px] border-white border-solid p-4 group-hover:bg-pink-500/25 transition-all h-full">
+							<p class="mt-auto text-2xl text-white tracking-widest font-semibold uppercase">Anniversaire</p>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="relative isolate p-4  aspect-[4/3] w-full h-auto group cursor-pointer">
+						<img src="/static/flowers1.jpg" class="absolute aspect-square object-cover top-0 left-0 w-full h-full -z-20">
+
+						<div class="flex border-[1px] border-white border-solid p-4 group-hover:bg-pink-500/25 transition-all h-full">
+							<p class="mt-auto text-2xl text-white tracking-widest font-semibold uppercase">Évènement particulier</p>
+						</div>
+					</div>
+				</li>
+
+								<li>
+					<div class="relative isolate p-4  aspect-[4/3] w-full h-auto group cursor-pointer">
+						<img src="/static/flowers1.jpg" class="absolute aspect-square object-cover top-0 left-0 w-full h-full -z-20">
+
+						<div class="flex border-[1px] border-white border-solid p-4 group-hover:bg-pink-500/25 transition-all h-full">
+							<p class="mt-auto text-2xl text-white tracking-widest font-semibold uppercase">Évènement professionel</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</main>
+
+		<a href="tel:+33164574043" class="flex justify-center items-center gap-2 fixed bottom-0 right-4 bg-maroon px-4 py-2 text-white font-bold rounded-t-2xl">
+			<svg class="text-xl" width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.5562 14.5477L15.1007 15.0272C15.1007 15.0272 14.0181 16.167 11.0631 13.0559C8.10812 9.94484 9.1907 8.80507 9.1907 8.80507L9.47752 8.50311C10.1841 7.75924 10.2507 6.56497 9.63424 5.6931L8.37326 3.90961C7.61028 2.8305 6.13596 2.68795 5.26145 3.60864L3.69185 5.26114C3.25823 5.71766 2.96765 6.30945 3.00289 6.96594C3.09304 8.64546 3.81071 12.259 7.81536 16.4752C12.0621 20.9462 16.0468 21.1239 17.6763 20.9631C18.1917 20.9122 18.6399 20.6343 19.0011 20.254L20.4217 18.7584C21.3806 17.7489 21.1102 16.0182 19.8833 15.312L17.9728 14.2123C17.1672 13.7486 16.1858 13.8848 15.5562 14.5477Z" fill="white"></path> <path d="M13.2595 1.87983C13.3257 1.47094 13.7122 1.19357 14.1211 1.25976C14.1464 1.26461 14.2279 1.27983 14.2705 1.28933C14.3559 1.30834 14.4749 1.33759 14.6233 1.38082C14.9201 1.46726 15.3347 1.60967 15.8323 1.8378C16.8286 2.29456 18.1544 3.09356 19.5302 4.46936C20.906 5.84516 21.705 7.17097 22.1617 8.16725C22.3899 8.66487 22.5323 9.07947 22.6187 9.37625C22.6619 9.52466 22.6912 9.64369 22.7102 9.72901C22.7197 9.77168 22.7267 9.80594 22.7315 9.83125L22.7373 9.86245C22.8034 10.2713 22.5286 10.6739 22.1197 10.7401C21.712 10.8061 21.3279 10.53 21.2601 10.1231C21.258 10.1121 21.2522 10.0828 21.2461 10.0551C21.2337 9.9997 21.2124 9.91188 21.1786 9.79572C21.1109 9.56339 20.9934 9.21806 20.7982 8.79238C20.4084 7.94207 19.7074 6.76789 18.4695 5.53002C17.2317 4.29216 16.0575 3.59117 15.2072 3.20134C14.7815 3.00618 14.4362 2.88865 14.2038 2.82097C14.0877 2.78714 13.9417 2.75363 13.8863 2.7413C13.4793 2.67347 13.1935 2.28755 13.2595 1.87983Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M13.4857 5.3293C13.5995 4.93102 14.0146 4.7004 14.4129 4.81419L14.2069 5.53534C14.4129 4.81419 14.4129 4.81419 14.4129 4.81419L14.4144 4.81461L14.4159 4.81505L14.4192 4.81602L14.427 4.81834L14.4468 4.8245C14.4618 4.82932 14.4807 4.8356 14.5031 4.84357C14.548 4.85951 14.6074 4.88217 14.6802 4.91337C14.8259 4.97581 15.0249 5.07223 15.2695 5.21694C15.7589 5.50662 16.4271 5.9878 17.2121 6.77277C17.9971 7.55775 18.4782 8.22593 18.7679 8.7154C18.9126 8.95991 19.009 9.15897 19.0715 9.30466C19.1027 9.37746 19.1254 9.43682 19.1413 9.48173C19.1493 9.50418 19.1555 9.52301 19.1604 9.53809L19.1665 9.55788L19.1688 9.56563L19.1698 9.56896L19.1702 9.5705C19.1702 9.5705 19.1707 9.57194 18.4495 9.77798L19.1707 9.57194C19.2845 9.97021 19.0538 10.3853 18.6556 10.4991C18.2607 10.6119 17.8492 10.3862 17.7313 9.99413L17.7276 9.98335C17.7223 9.96832 17.7113 9.93874 17.6928 9.89554C17.6558 9.8092 17.5887 9.66797 17.4771 9.47938C17.2541 9.10264 16.8514 8.53339 16.1514 7.83343C15.4515 7.13348 14.8822 6.73078 14.5055 6.50781C14.3169 6.39619 14.1757 6.32909 14.0893 6.29209C14.0461 6.27358 14.0165 6.26254 14.0015 6.25721L13.9907 6.25352C13.5987 6.13564 13.3729 5.72419 13.4857 5.3293Z" fill="white"></path> </g></svg>
+			<span>
+				01 64 57 40 43
+			</span>
+		</a>
+
+	</body>
+</html>
